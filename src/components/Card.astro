@@ -2,10 +2,11 @@
 interface Props {
 	title: string;
 	time: string;
-	tags: string;
+	tags: string[];
+    slug: string;
 }
 
-const {  title, time, tags } = Astro.props;
+const {  title, time, tags, slug } = Astro.props;
 ---
 
 <!--
@@ -32,12 +33,16 @@ theme: {
   <div class="rounded-[10px] bg-white p-4 !pt-20 sm:p-6">
     <time datetime="2022-10-10" class="block text-xs text-gray-500">{time}</time>
 
-    <a href="#">
+    <a href={`/posts/${slug}`}>
       <h3 class="mt-0.5 text-lg font-medium text-gray-900">{title}</h3>
     </a>
 
     <div class="mt-4 flex flex-wrap gap-1">
-      <span class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">{tags}</span>
+        {
+            tags.map((item) => (
+                <span class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">{item}</span>
+            ))
+        }
 
     </div>
   </div>
