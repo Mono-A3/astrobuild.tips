@@ -15,5 +15,8 @@
     "astro": "^4.15.4",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "prettier": "3.3.3"
   }
 }
