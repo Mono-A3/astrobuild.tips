@@ -3,59 +3,50 @@ import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
-import {getCollection} from 'astro:content'
+import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('tips')).sort(
-    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
-);
-
-console.log(posts)
+const posts = (await getCollection('tips')).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<Header title='AstroBuild.tips'/>
+    <main>
+        <Header title="AstroBuild.tips" />
 
-        <Hero/>
-		
-		<ul role="list" class="link-card-grid">
+        <Hero />
+
+        <ul role="list" class="link-card-grid">
             {
-                posts.map((post) =>(
-                    <Card 
-                        title={post.data.title} 
-                        time={post.data.pubDate} 
-                        tags={post.data.tags}
-                        slug={post.slug}
-                    />
+                posts.map((post) => (
+                    <Card title={post.data.title} time={post.data.pubDate} tags={post.data.tags} slug={post.slug} />
                 ))
             }
-		</ul>
-	</main>
+        </ul>
+    </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+    main {
+        margin: auto;
+        padding: 1rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .astro-a {
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translatex(-50%);
+        width: 220px;
+        height: auto;
+        z-index: -1;
+    }
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+        gap: 2rem;
+        padding: 0;
+    }
 </style>
