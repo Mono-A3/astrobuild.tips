@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import HeaderTop from '../../components/HeaderTop';
 import Header from '../../components/Header';
 import Base from '../../layouts/Base.astro';
 import Social from '../../components/Social.svelte';
@@ -19,6 +20,7 @@ const { Content } = await post.render();
 ---
 
 <Base title="AstroBuild.tips">
+    <HeaderTop client:load />
     <Header title="AstroBuild.tips" />
     <Content />
     <Footer>
