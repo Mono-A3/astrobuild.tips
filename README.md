@@ -21,7 +21,7 @@ Este proyecto es parte de mi proceso de aprendizaje con Astro y está destinado 
 
 ## Despliegue
 
-El proyecto está desplegado en [Netlify](https://www.netlify.com/).
+El proyecto está desplegado en [Netlify](https://astrobuild-tips.netlify.app/).
 
 ## Autor
 
